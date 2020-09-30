@@ -1,0 +1,10 @@
+.notice {
+	background: $blue;
+	padding: 15px 20px;
+	text-align: center;
+
+	&__text {
+		color: $white;
+		font: 16px/20px $ArialRegular;
+	}
+}

@@ -1,0 +1,30 @@
+.slider {
+	&__content {
+		height: 565px;
+	}
+
+	&__item {
+		height: 100%;
+		padding: 85px 80px 80px;
+		background: url("img/slide_img.png") no-repeat;
+		background-size: cover;
+	}
+
+	&__info {
+		max-width: 510px;
+	}
+
+	&__title {
+		color: $black;
+		font: 48px/60px $CopperplateGothicLight;
+		margin-bottom: 10px;
+	}
+
+	&__text {
+		color: $black;
+		text-transform: uppercase;
+		font: 16px/20px $ArialRegular;
+		opacity: .5;
+		margin-bottom: 40px;
+	}
+}

@@ -1,0 +1,15 @@
+.social {
+	display: flex;
+	text-align-last: center;
+	padding-bottom: 5px;
+
+	&__item {
+		&:not(:last-child) {
+			margin-right: 30px;
+		}
+	}
+
+	&__link {
+		display: flex;
+	}
+}

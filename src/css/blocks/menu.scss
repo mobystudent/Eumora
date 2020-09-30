@@ -1,0 +1,19 @@
+.menu {
+	display: flex;
+
+	&__item {
+		&:not(:last-child) {
+			margin-right: 40px;
+		}
+	}
+
+	&__link {
+		color: $black;
+		font: 16px/20px $ArialRegular;
+		text-transform: uppercase;
+
+		&--submenu {
+			padding-right: 15px;
+		}
+	}
+}

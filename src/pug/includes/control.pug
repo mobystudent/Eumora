@@ -1,0 +1,17 @@
+ul.control
+
+	- const control = ["loupe", "basket", "login"];
+
+	each controlItem in control
+		li.control__item
+
+			if (controlItem == 'basket')
+				a.control__link.control__link--basket(href="#")
+					svg.icon(class=`icon--${controlItem}`)
+							use.icon__item(xlink:href=`#${controlItem}`)
+					small.control__count
+						| 0
+			else
+				a.control__link(href="#")
+					svg.icon(class=`icon--${controlItem}`)
+							use.icon__item(xlink:href=`#${controlItem}`)

@@ -6,8 +6,24 @@ block title
 block content
 			
 	.wrapper
-		include includes/header.pug
+		include includes/header
 		
 		main.main
+			section.slider
+				.slider__content
+					
+					//- - for (let i = 0; i < 3; i++)
+					.slider__item
+						.slider__info
+							h2.slider__title
+								| Bigger Facial Bars, Enhanced with Shea Butter
+							p.slider__text
+								| Taces Years Off In Just Days
+							a.btn.btn--slider(href="#")
+								| Learn more
+							
+				.slider__control
+					small.slider__arrow.slider__arrow--prev
+					small.slider__arrow.slider__arrow--next
 			
-		include includes/footer.pug
+		include includes/footer

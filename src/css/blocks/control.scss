@@ -1,0 +1,35 @@
+.control {
+	display: flex;
+	align-items: center;
+	padding-bottom: 5px;
+
+	&__item {
+		&:not(:last-child) {
+			margin-right: 30px;
+		}
+	}
+
+	&__link {
+		display: flex;
+
+		&--basket {
+			position: relative;
+			padding-right: 10px;
+		}
+	}
+
+	&__count {
+		position: absolute;
+		top: -12px;
+		right: -2px;
+		font: 16px $ArialRegular;
+		color: $gray;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background: $gold;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

@@ -4,7 +4,6 @@ const gulp = require('gulp'),
 	del = require('del'),
 	pug = require('gulp-pug'),
 	sourcemaps = require('gulp-sourcemaps'),
-	fs = require('fs'),
 	rename = require('gulp-rename'),
 	browserSync = require('browser-sync').create();
 
@@ -49,22 +48,26 @@ const dirBuild = 'build',
 			html: dirSrc + '/template/*.html',
 			css: dirSrc + '/css/style.scss',
 			pug: dirSrc + '/pug/**/*.pug',
-			fonts: dirSrc + '/fonts/**/*.{ttf,otf}',
+			fonts: dirSrc + '/fonts/*!{default}',
 			favicon: dirSrc + '/favicon/*',
-			img: dirSrc + '/img/**/*',
-			imgNF: dirSrc + '/img/**/*.{jpg,jpeg,png}',
-			js: dirSrc + '/js/script.js',
-			data: dirSrc + '/data/data.json'
+			img: dirSrc + '/img/*!{default}',
+			js: dirSrc + '/js/script.js'
 		},
 		watch: {
 			html: dirSrc + '/template/**/*.html',
 			css: dirSrc + '/css/**/*.scss',
 			pug: dirSrc + '/pug/**/*.pug',
-			fonts: dirSrc + '/fonts/**/*',
 			favicon: dirSrc + '/favicon/*',
 			img: dirSrc + '/img/**/*',
-			js: dirSrc + '/js/**/*.js',
-			data: dirSrc + '/data/**/*.json'
+			js: dirSrc + '/js/**/*.js'
+		},
+		def: {
+			img: dirSrc + '/img/**/*.{jpg,jpeg,png}',
+			fonts: dirSrc + '/fonts/default/*'
+		},
+		conv: {
+			img: dirSrc + '/img',
+			fonts: dirSrc + '/fonts',
 		}
 	};
 
@@ -95,29 +98,29 @@ function gulpSass() {
 
 /* conversion fonts */
 function gulpFonts() {
-	return gulp.src(path.src.fonts)
+	return gulp.src(path.def.fonts)
+		.pipe(gulp.dest(path.conv.fonts))
 		.pipe(gulp.dest(path.build.fonts))
 		.pipe(ttf2svg())
-		.pipe(gulp.dest(path.build.fonts))
-		.pipe(gulp.src(path.src.fonts))
+		.pipe(gulp.dest(path.conv.fonts))
+		.pipe(gulp.src(path.def.fonts))
 		.pipe(ttf2woff())
-		.pipe(gulp.dest(path.build.fonts))
-		.pipe(gulp.src(path.src.fonts))
+		.pipe(gulp.dest(path.conv.fonts))
+		.pipe(gulp.src(path.def.fonts))
 		.pipe(ttf2woff2())
-		.pipe(gulp.dest(path.build.fonts))
-		.pipe(gulp.src(path.src.fonts))
+		.pipe(gulp.dest(path.conv.fonts))
+		.pipe(gulp.src(path.def.fonts))
 		.pipe(ttf2eot())
+		.pipe(gulp.dest(path.conv.fonts))
+		.pipe(gulp.src(path.src.fonts))
 		.pipe(gulp.dest(path.build.fonts));
 }
 
-
 /* conversion pug */
 function gulpPug() {
-	const dataFromFile = JSON.parse(fs.readFileSync(path.src.data));
 	return gulp.src(path.src.pug)
 		.pipe(pug({
-			pretty: true,
-			locals: dataFromFile || {}
+			pretty: true
 		}))
 		.pipe(gulp.dest(path.build.pug));
 }
@@ -130,20 +133,23 @@ function gulpHTML() {
 
 /* optimize images */
 function gulpImages() {
-	return gulp.src(path.src.img)
+	return gulp.src(path.def.img)
 		.pipe(imagemin([
 			imagemin.mozjpeg({quality: 90, progressive: true}),
 			imagemin.optipng(),
 			imagemin.svgo()
 		]))
+		.pipe(gulp.dest(path.conv.img))
 		.pipe(gulp.dest(path.build.img))
-		.pipe(gulp.src(path.src.imgNF))
+		.pipe(gulp.src(path.def.img))
 		.pipe(jp2000())
-		.pipe(gulp.dest(path.build.img))
-		.pipe(gulp.src(path.src.imgNF))
+		.pipe(gulp.dest(path.conv.img))
+		.pipe(gulp.src(path.def.img))
 		.pipe(webp({
 			quality: 70
 		}))
+		.pipe(gulp.dest(path.conv.img))
+		.pipe(gulp.src(path.src.img))
 		.pipe(gulp.dest(path.build.img));
 }
 
@@ -160,7 +166,7 @@ function gulpJS() {
 		.pipe(rollup({
 			plugins: [
 				commonjs(),
-				nodeResolve(),
+				// nodeResolve(),
 				babel({
 					presets: [
 						"@babel/env"
@@ -189,11 +195,10 @@ function gulpWatch() {
 	gulp.watch(path.watch.pug, gulp.series(gulpPug));
 	gulp.watch(path.watch.html, gulp.series(gulpHTML));
 	gulp.watch(path.watch.js, gulp.series(gulpJS));
-	gulp.watch(path.watch.data, gulp.series(gulpPug));
 }
 
-const dev = gulp.series(clean, gulp.parallel(gulpSass, gulpHTML, gulpPug, gulpJS, gulpFonts, gulpFavicon, gulpImages)),
-	build = gulp.series(clean, gulp.parallel(gulpSass, gulpHTML, gulpJS, gulpFonts, gulpFavicon, gulpImages));
+const dev = gulp.series(clean, gulp.parallel(gulp.series(gulpImages, gulpFonts, gulpSass), gulpHTML, gulpPug, gulpJS, gulpFavicon)),
+	build = gulp.series(clean, gulp.parallel(gulp.series(gulpImages, gulpFonts, gulpSass), gulpHTML, gulpJS, gulpFavicon));
 
 exports.default = build;
 exports.watch = gulp.series(build, gulpWatch);
