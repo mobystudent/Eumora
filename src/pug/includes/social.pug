@@ -4,6 +4,6 @@ ul.social
 	
 	each socialHeaderItem in socialHeader
 		li.social__item
-			a.social__link(href="#" target="_blank")
+			a.social__link(href="#" target="_blank" class=`social__link--${socialHeaderItem}`)
 				svg.icon(class=`icon--${socialHeaderItem}`)
 					use.icon__item(xlink:href=`#${socialHeaderItem}`)

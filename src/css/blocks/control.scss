@@ -31,9 +31,37 @@
 	&__link {
 		display: flex;
 
+		&--loupe {
+			&:hover {
+				.icon {
+					fill: $red;
+				}
+			}
+		}
+
 		&--basket {
 			position: relative;
 			padding-right: 10px;
+
+			&:hover {
+				.icon {
+					fill: $dimTurquoise;
+				}
+			}
+		}
+
+		&--login {
+			&:hover {
+				.icon {
+					fill: $gold;
+				}
+			}
+		}
+
+		&:hover {
+			.icon {
+				transform: scale(1.1);
+			}
 		}
 	}
 

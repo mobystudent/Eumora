@@ -12,6 +12,6 @@ ul.control
 					small.control__count.text.text--std-to-small
 						| 0
 			else
-				a.control__link(href="#")
+				a.control__link(href="#" class=`control__link--${controlItem}`)
 					svg.icon(class=`icon--${controlItem}`)
 						use.icon__item(xlink:href=`#${controlItem}`)

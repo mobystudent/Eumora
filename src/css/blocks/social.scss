@@ -19,5 +19,35 @@
 
 	&__link {
 		display: flex;
+
+		&--fb {
+			&:hover {
+				.icon {
+					fill: $darkBlue;
+				}
+			}
+		}
+
+		&--tw {
+			&:hover {
+				.icon {
+					fill: $lightBlue;
+				}
+			}
+		}
+
+		&--insta {
+			&:hover {
+				.icon {
+					fill: url(#instaGrad);
+				}
+			}
+		}
+
+		&:hover {
+			.icon {
+				transform: scale(1.1);
+			}
+		}
 	}
 }

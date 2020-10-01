@@ -1,5 +1,6 @@
 .icon {
 	fill: $black;
+	transition: transform .25s ease-in-out, fill .25s ease-in-out;
 
 	&--fb {
 		width: 11px;

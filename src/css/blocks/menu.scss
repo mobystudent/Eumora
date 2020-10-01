@@ -14,6 +14,11 @@
 	&__link {
 		color: $black;
 		text-transform: uppercase;
+		transition: color .25s ease-in-out;
+
+		&:hover {
+			color: $gold;
+		}
 
 		&--submenu {
 			padding-right: 15px;
