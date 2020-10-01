@@ -22,11 +22,3 @@ body {
 	overflow: hidden;
 	background: $darkGray;
 }
-
-.burger {
-	display: none;
-
-	@media screen and (max-width: 767px) {
-		display: block;
-	}
-}

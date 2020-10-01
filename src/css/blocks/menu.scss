@@ -1,12 +1,25 @@
 .menu {
 	display: flex;
 
+	@media screen and (max-width: 767px) {
+		flex-flow: column;
+	}
+
 	&__item {
 		&:not(:last-child) {
 			margin-right: 40px;
 
 			@media screen and (max-width: 1023px) {
 				margin-right: 30px;
+			}
+
+			@media screen and (max-width: 767px) {
+				margin-right: 0;
+				margin-bottom: 24px;
+			}
+
+			@media screen and (max-width: 767px) {
+				margin-bottom: 20px;
 			}
 		}
 	}

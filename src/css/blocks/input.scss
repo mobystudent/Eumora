@@ -1,0 +1,13 @@
+.input {
+	&--burger {
+		border: 1px solid $gray;
+		padding: 20px;
+		width: 215px;
+		text-transform: capitalize;
+		@include placeholder(13px/16px $ArialRegular, rgba($black, .5));
+
+		@media screen and (max-width: 767px) {
+			padding: 15px;
+		}
+	}
+}

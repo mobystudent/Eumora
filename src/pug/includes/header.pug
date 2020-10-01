@@ -1,21 +1,24 @@
+include mixins
+
 .notice
-	p.notice__text.text.text--std-to-small
-		| Enjoy Free Shipping Worldwide, No Minimum Purchase
+	.container
+		p.notice__text.text.text--std-to-small
+			| Enjoy Free Shipping Worldwide, No Minimum Purchase
 
 header.header
-	.header__top
-		include social
-		
-		a.burger(href="#")
-			svg.icon.icon--burger
-				use.icon__item(xlink:href="#burger")
+	.container
+		.header__top
+			+social('main')
+			
+			a.btn.btn--burger(href="#")
+				svg.icon.icon--burger
+					use.icon__item(xlink:href="#burger")
 
-		a.logo(href="/")
-			picture.img.img--logo
-				source.img__item(srcset='img/logo.webp' type="image/webp")
-				source.img__item(srcset='img/logo.jp2' type="image/jp2")
-				img.img__item(src='img/logo.png' alt='logo')
-					
-		include control
-		
-	include nav
+			a.logo(href="/")
+				picture.img.img--logo
+					source.img__item(srcset='img/logo.webp' type="image/webp")
+					source.img__item(srcset='img/logo.jp2' type="image/jp2")
+					img.img__item(src='img/logo.png' alt='logo')
+						
+			include control
+		+nav('main')

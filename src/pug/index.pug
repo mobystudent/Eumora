@@ -4,33 +4,34 @@ block title
 	title Главная
 
 block content
-			
 	.wrapper
 		include includes/header
 		
 		main.main
 			section.slider
-				.slider__content
-					
-					//- - for (let i = 0; i < 3; i++)
-					- const i = 0;
-					
-					.slider__item
-						picture.slider__img.img
-							source.img__item(srcset='img/slide-img-desk.webp' type="image/webp")
-							source.img__item(srcset='img/slide-img-desk.jp2' type="image/jp2")
-							img.img__item(src='img/slider-img-desk.png' alt='slide-img-desk')
-						.slider__wrap
-							.slider__info
-								h2.slider__title
-									| Bigger Facial Bars, Enhanced with Shea Butter
-								p.slider__text.text.text--stand
-									| Taces Years Off In Just Days
-								a.btn.btn--slider.text.text--stand(href="#")
-									| Learn more
-							
-				.slider__control
-					small.slider__arrow.slider__arrow--prev
-					small.slider__arrow.slider__arrow--next
+				.container
+					.slider__content
+						
+						//- - for (let i = 0; i < 3; i++)
+						- const i = 0;
+						
+						.slider__item
+							picture.slider__img.img
+								source.img__item(srcset='img/slide-img-desk.webp' type="image/webp" media="(min-width: 768px)")
+								source.img__item(srcset='img/slide-img-mob.webp' type="image/webp" media="(max-width: 767px)")
+								source.img__item(srcset='img/slide-img-desk.jp2' type="image/jp2" media="(min-width: 768px)")
+								source.img__item(srcset='img/slide-img-mob.jp2' type="image/jp2" media="(max-width: 767px)")
+								img.img__item(srcset='img/slider-img-mob.png, img/slider-img-desk.png' sizes='(max-width: 767px), (min-width: 768px)' src='img/slider-img-desk.png' alt='slide-img')
+							.slider__wrap
+								.slider__info
+									h2.slider__title
+										| Bigger Facial Bars, Enhanced with Shea Butter
+									p.slider__text.text.text--stand
+										| Taces Years Off In Just Days
+									a.btn.btn--slider.text.text--stand(href="#")
+										| Learn more
 			
 		include includes/footer
+		
+		//- pop-ups
+		include includes/burger

@@ -1,0 +1,10 @@
+mixin social(blockName)
+	ul.social(class=`social--${blockName}`)
+		
+		- var socialHeader = ["fb", "tw", "insta"];
+		
+		each socialHeaderItem in socialHeader
+			li.social__item
+				a.social__link(href="#" target="_blank" class=`social__link--${socialHeaderItem}`)
+					svg.icon(class=`icon--${socialHeaderItem}`)
+						use.icon__item(xlink:href=`#${socialHeaderItem}`)

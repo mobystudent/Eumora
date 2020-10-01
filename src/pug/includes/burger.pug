@@ -1,0 +1,14 @@
+include mixins
+
+.background
+.burger
+	.burger__wrap
+		header.burger__header
+			form.form.form--burger(action="#" method="GET")
+				input.input.input--burger(type="search" placeholder="search" aria-label="burger-search")
+			a.btn.btn--close(href="#")
+				svg.icon.icon--close
+					use.icon__item(xlink:href="#close")
+
+		+nav('burger')
+		+social('burger')

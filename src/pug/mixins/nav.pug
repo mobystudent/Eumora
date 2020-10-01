@@ -1,0 +1,14 @@
+mixin nav(blockName)
+	nav.nav(class=`nav--${blockName}`)
+		ul.menu
+			if (blockName == 'main')
+				- var menuHeader = ["home", "skin concerns", "shop all", "results", "about us", "contacts"];
+			else
+				- var menuHeader = ["home", "skin concerns", "shop all", "results", "about us", "contacts", "log in", "create account"];
+
+			each menuHeaderItem in menuHeader
+				li.menu__item.text.text--stand
+					if (menuHeaderItem == 'skin concerns')
+						a.menu__link.menu__link--submenu(href="#")=menuHeaderItem
+					else
+						a.menu__link(href="#")=menuHeaderItem

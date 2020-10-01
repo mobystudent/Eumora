@@ -41,4 +41,10 @@
 		width: 14px;
 		height: 14px;
 	}
+
+	&--close {
+		width: 10px;
+		height: 10px;
+		stroke: rgba($black, .8);
+	}
 }

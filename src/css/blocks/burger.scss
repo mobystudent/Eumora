@@ -1,0 +1,32 @@
+.burger {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 20;
+	box-shadow: 0 4px 40px rgba(75, 80, 81, .1);
+	display: none;
+	transition: transform .35s ease-in-out;
+
+	@media screen and (max-width: 767px) {
+		display: block;
+		transform: translateX(100%);
+	}
+
+	&--active {
+		transform: translateX(0);
+	}
+
+	&__wrap {
+		width: 285px;
+		padding: 25px 15px;
+		background: $white;
+		height: 100%;
+	}
+
+	&__header {
+		position: relative;
+		margin-bottom: 30px;
+	}
+}
