@@ -51,7 +51,7 @@ const dirBuild = 'build',
 			fonts: dirSrc + '/fonts/*.{ttf,otf}',
 			favicon: dirSrc + '/favicon/*',
 			img: dirSrc + '/img/**/*',
-			imgPic: dirSrc + '/img/*',
+			imgPic: dirSrc + '/img/*.{jpg,jpeg,png}',
 			js: dirSrc + '/js/script.js'
 		},
 		watch: {
@@ -120,19 +120,17 @@ function gulpHTML() {
 
 /* optimize images */
 function gulpImages() {
-	return gulp.src(path.src.img)
-		.pipe(imagemin([
-			imagemin.mozjpeg({quality: 90, progressive: true}),
-			imagemin.optipng(),
-			imagemin.svgo()
-		]))
-		.pipe(gulp.dest(path.build.img))
-		.pipe(gulp.src(path.src.imgPic))
+	return gulp.src(path.src.imgPic)
 		.pipe(jp2000())
 		.pipe(gulp.src(path.src.imgPic))
 		.pipe(webp({
 			quality: 70
 		}))
+		.pipe(gulp.src(path.src.img))
+		.pipe(imagemin([
+			imagemin.mozjpeg({quality: 90, progressive: true}),
+			imagemin.optipng()
+		]))
 		.pipe(gulp.dest(path.build.img));
 }
 

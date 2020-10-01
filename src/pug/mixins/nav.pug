@@ -7,8 +7,15 @@ mixin nav(blockName)
 				- var menuHeader = ["home", "skin concerns", "shop all", "results", "about us", "contacts", "log in", "create account"];
 
 			each menuHeaderItem in menuHeader
-				li.menu__item.text.text--stand
-					if (menuHeaderItem == 'skin concerns')
-						a.menu__link.menu__link--submenu(href="#")=menuHeaderItem
-					else
-						a.menu__link(href="#")=menuHeaderItem
+				if (menuHeaderItem == 'skin concerns')
+					li.menu__item.menu__item--main.menu__item--main-sub
+						a.menu__link.menu__link--submenu.text.text--stand(href="#")=menuHeaderItem
+						ul.menu__submenu
+							
+							- for (let i = 0; i < 4; i++)
+							
+								li.menu__item.menu__item--sub
+									a.menu__link.menu__link--sub.text.text--stand(href="#") submenu-#{i+1}
+				else
+					li.menu__item.menu__item--main
+						a.menu__link.text.text--stand(href="#")=menuHeaderItem

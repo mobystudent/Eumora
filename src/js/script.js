@@ -4,6 +4,7 @@ import slick from 'slick-carousel';
 $(window).on('load', () => {
 	burger();
 	slider();
+	toggleSubMenu();
 });
 
 function __actionBurger(btn, action) {
@@ -42,5 +43,13 @@ function slider() {
 				}
 			}
 		]
+	});
+}
+
+function toggleSubMenu() {
+	$(".menu__link--submenu").click(e => {
+		e.preventDefault();
+
+		$(e.target).next().slideToggle();
 	});
 }
