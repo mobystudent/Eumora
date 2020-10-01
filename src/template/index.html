@@ -8,8 +8,7 @@
     <title>Главная</title>
     <link rel="favicon" href="favicon/favicon.ico">
     <link rel="stylesheet" href="style.min.css">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-    <script defer src="js/script.min.js"></script>
+    <script src="js/script.min.js"></script>
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;" aria-hidden="true" focusable="false">
@@ -45,6 +44,9 @@
       </symbol>
       <symbol id="close" viewBox="0 0 32 32" fill="none">
         <path d="M1 1l30 30m0-30L1 31"></path>
+      </symbol>
+      <symbol id="arrowTrian" viewBox="0 0 24 36">
+        <path d="M23.5 34.343L.854 18 23.5 1.657v32.686z"></path>
       </symbol>
     </svg>
     <div class="wrapper">
@@ -116,7 +118,35 @@
       <main class="main">
         <section class="slider">
           <div class="container">
-            <div class="slider__content">
+            <div class="slider__content" id="mainSlider">
+              <div class="slider__item">
+                <picture class="slider__img img">
+                  <source class="img__item" srcset="img/slide-img-desk.webp" type="image/webp" media="(min-width: 768px)">
+                  <source class="img__item" srcset="img/slide-img-mob.webp" type="image/webp" media="(max-width: 767px)">
+                  <source class="img__item" srcset="img/slide-img-desk.jp2" type="image/jp2" media="(min-width: 768px)">
+                  <source class="img__item" srcset="img/slide-img-mob.jp2" type="image/jp2" media="(max-width: 767px)"><img class="img__item" srcset="img/slider-img-mob.png, img/slider-img-desk.png" sizes="(max-width: 767px), (min-width: 768px)" src="img/slider-img-desk.png" alt="slide-img">
+                </picture>
+                <div class="slider__wrap">
+                  <div class="slider__info">
+                    <h2 class="slider__title">Bigger Facial Bars, Enhanced with Shea Butter</h2>
+                    <p class="slider__text text text--stand">Taces Years Off In Just Days</p><a class="btn btn--slider text text--stand" href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__item">
+                <picture class="slider__img img">
+                  <source class="img__item" srcset="img/slide-img-desk.webp" type="image/webp" media="(min-width: 768px)">
+                  <source class="img__item" srcset="img/slide-img-mob.webp" type="image/webp" media="(max-width: 767px)">
+                  <source class="img__item" srcset="img/slide-img-desk.jp2" type="image/jp2" media="(min-width: 768px)">
+                  <source class="img__item" srcset="img/slide-img-mob.jp2" type="image/jp2" media="(max-width: 767px)"><img class="img__item" srcset="img/slider-img-mob.png, img/slider-img-desk.png" sizes="(max-width: 767px), (min-width: 768px)" src="img/slider-img-desk.png" alt="slide-img">
+                </picture>
+                <div class="slider__wrap">
+                  <div class="slider__info">
+                    <h2 class="slider__title">Bigger Facial Bars, Enhanced with Shea Butter</h2>
+                    <p class="slider__text text text--stand">Taces Years Off In Just Days</p><a class="btn btn--slider text text--stand" href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
               <div class="slider__item">
                 <picture class="slider__img img">
                   <source class="img__item" srcset="img/slide-img-desk.webp" type="image/webp" media="(min-width: 768px)">
@@ -132,6 +162,13 @@
                 </div>
               </div>
             </div>
+            <div class="slider__control"><a class="slider__arrow slider__arrow--prev" href="#">
+                <svg class="icon icon--arrow-trian">
+                  <use class="icon__item" xlink:href="#arrowTrian"></use>
+                </svg></a><a class="slider__arrow slider__arrow--next" href="#">
+                <svg class="icon icon--arrow-trian">
+                  <use class="icon__item" xlink:href="#arrowTrian"></use>
+                </svg></a></div>
           </div>
         </section>
       </main>

@@ -10,26 +10,33 @@ block content
 		main.main
 			section.slider
 				.container
-					.slider__content
+					#mainSlider.slider__content
 						
-						//- - for (let i = 0; i < 3; i++)
-						- const i = 0;
+						- for (let i = 0; i < 3; i++)
 						
-						.slider__item
-							picture.slider__img.img
-								source.img__item(srcset='img/slide-img-desk.webp' type="image/webp" media="(min-width: 768px)")
-								source.img__item(srcset='img/slide-img-mob.webp' type="image/webp" media="(max-width: 767px)")
-								source.img__item(srcset='img/slide-img-desk.jp2' type="image/jp2" media="(min-width: 768px)")
-								source.img__item(srcset='img/slide-img-mob.jp2' type="image/jp2" media="(max-width: 767px)")
-								img.img__item(srcset='img/slider-img-mob.png, img/slider-img-desk.png' sizes='(max-width: 767px), (min-width: 768px)' src='img/slider-img-desk.png' alt='slide-img')
-							.slider__wrap
-								.slider__info
-									h2.slider__title
-										| Bigger Facial Bars, Enhanced with Shea Butter
-									p.slider__text.text.text--stand
-										| Taces Years Off In Just Days
-									a.btn.btn--slider.text.text--stand(href="#")
-										| Learn more
+							.slider__item
+								picture.slider__img.img
+									source.img__item(srcset='img/slide-img-desk.webp' type="image/webp" media="(min-width: 768px)")
+									source.img__item(srcset='img/slide-img-mob.webp' type="image/webp" media="(max-width: 767px)")
+									source.img__item(srcset='img/slide-img-desk.jp2' type="image/jp2" media="(min-width: 768px)")
+									source.img__item(srcset='img/slide-img-mob.jp2' type="image/jp2" media="(max-width: 767px)")
+									img.img__item(srcset='img/slider-img-mob.png, img/slider-img-desk.png' sizes='(max-width: 767px), (min-width: 768px)' src='img/slider-img-desk.png' alt='slide-img')
+								.slider__wrap
+									.slider__info
+										h2.slider__title
+											| Bigger Facial Bars, Enhanced with Shea Butter
+										p.slider__text.text.text--stand
+											| Taces Years Off In Just Days
+										a.btn.btn--slider.text.text--stand(href="#")
+											| Learn more
+											
+					.slider__control
+						a.slider__arrow.slider__arrow--prev(href="#")
+							svg.icon.icon--arrow-trian
+								use.icon__item(xlink:href="#arrowTrian")
+						a.slider__arrow.slider__arrow--next(href="#")
+							svg.icon.icon--arrow-trian
+								use.icon__item(xlink:href="#arrowTrian")
 			
 		include includes/footer
 		
