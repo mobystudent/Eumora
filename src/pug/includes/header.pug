@@ -1,10 +1,14 @@
 .notice
-	p.notice__text
+	p.notice__text.text.text--std-to-small
 		| Enjoy Free Shipping Worldwide, No Minimum Purchase
 
 header.header
 	.header__top
 		include social
+		
+		a.burger(href="#")
+			svg.icon.icon--burger
+				use.icon__item(xlink:href="#burger")
 
 		a.logo(href="/")
 			picture.img.img--logo
@@ -14,14 +18,4 @@ header.header
 					
 		include control
 		
-	nav.nav
-		ul.menu
-		
-			- const menuHeader = ["home", "skin concerns", "shop all", "results", "about us", "contacts"];
-		
-			each menuHeaderItem in menuHeader
-				li.menu__item
-					if (menuHeaderItem == 'skin concerns')
-						a.menu__link.menu__link--submenu(href="#")=menuHeaderItem
-					else
-						a.menu__link(href="#")=menuHeaderItem
+	include nav

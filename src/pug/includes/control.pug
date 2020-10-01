@@ -3,15 +3,15 @@ ul.control
 	- const control = ["loupe", "basket", "login"];
 
 	each controlItem in control
-		li.control__item
+		li.control__item(class=`control__item--${controlItem}`)
 
 			if (controlItem == 'basket')
 				a.control__link.control__link--basket(href="#")
 					svg.icon(class=`icon--${controlItem}`)
-							use.icon__item(xlink:href=`#${controlItem}`)
-					small.control__count
+						use.icon__item(xlink:href=`#${controlItem}`)
+					small.control__count.text.text--std-to-small
 						| 0
 			else
 				a.control__link(href="#")
 					svg.icon(class=`icon--${controlItem}`)
-							use.icon__item(xlink:href=`#${controlItem}`)
+						use.icon__item(xlink:href=`#${controlItem}`)

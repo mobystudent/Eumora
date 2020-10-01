@@ -3,9 +3,28 @@
 	align-items: center;
 	padding-bottom: 5px;
 
+	@media screen and (max-width: 767px) {
+		padding-bottom: 0;
+	}
+
 	&__item {
 		&:not(:last-child) {
 			margin-right: 30px;
+
+			@media screen and (max-width: 1023px) {
+				margin-right: 20px;
+			}
+
+			@media screen and (max-width: 767px) {
+				margin-right: 0;
+			}
+		}
+
+		&--loupe,
+		&--login {
+			@media screen and (max-width: 767px) {
+				display: none;
+			}
 		}
 	}
 
@@ -22,7 +41,6 @@
 		position: absolute;
 		top: -12px;
 		right: -2px;
-		font: 16px $ArialRegular;
 		color: $gray;
 		width: 25px;
 		height: 25px;
@@ -31,5 +49,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		@media screen and (max-width: 767px) {
+			top: -9px;
+			right: 1px;
+			width: 16px;
+			height: 16px;
+		}
 	}
 }

@@ -3,9 +3,17 @@
 	text-align-last: center;
 	padding-bottom: 5px;
 
+	@media screen and (max-width: 767px) {
+		display: none;
+	}
+
 	&__item {
 		&:not(:last-child) {
 			margin-right: 30px;
+
+			@media screen and (max-width: 1023px) {
+				margin-right: 20px;
+			}
 		}
 	}
 

@@ -24,10 +24,20 @@
 	&--basket {
 		width: 30px;
 		height: 25px;
+
+		@media screen and (max-width: 767px) {
+			width: 18px;
+			height: 16px;
+		}
 	}
 
 	&--login {
 		width: 18px;
 		height: 20px;
+	}
+
+	&--burger {
+		width: 14px;
+		height: 14px;
 	}
 }

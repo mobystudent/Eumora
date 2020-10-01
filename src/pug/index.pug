@@ -13,14 +13,21 @@ block content
 				.slider__content
 					
 					//- - for (let i = 0; i < 3; i++)
+					- const i = 0;
+					
 					.slider__item
-						.slider__info
-							h2.slider__title
-								| Bigger Facial Bars, Enhanced with Shea Butter
-							p.slider__text
-								| Taces Years Off In Just Days
-							a.btn.btn--slider(href="#")
-								| Learn more
+						picture.slider__img.img
+							source.img__item(srcset='img/slide-img-desk.webp' type="image/webp")
+							source.img__item(srcset='img/slide-img-desk.jp2' type="image/jp2")
+							img.img__item(src='img/slider-img-desk.png' alt='slide-img-desk')
+						.slider__wrap
+							.slider__info
+								h2.slider__title
+									| Bigger Facial Bars, Enhanced with Shea Butter
+								p.slider__text.text.text--stand
+									| Taces Years Off In Just Days
+								a.btn.btn--slider.text.text--stand(href="#")
+									| Learn more
 							
 				.slider__control
 					small.slider__arrow.slider__arrow--prev

@@ -1,0 +1,19 @@
+.text {
+	&--stand {
+		font: 16px/20px $ArialRegular;
+
+		@media screen and (max-width: 359px) {
+			font-size: 14px;
+			line-height: 18px;
+		}
+	}
+
+	&--std-to-small {
+		font: 16px/20px $ArialRegular;
+
+		@media screen and (max-width: 767px) {
+			font-size: 10px;
+			line-height: 13px;
+		}
+	}
+}

@@ -3,4 +3,16 @@
 	height: 80px;
 	margin-left: 30px;
 	cursor: pointer;
+
+	@media screen and (max-width: 1023px) {
+		margin-left: 20px;
+		width: 185px;
+		height: 70px;
+	}
+
+	@media screen and (max-width: 767px) {
+		margin-left: 10px;
+		width: 166px;
+		height: 64px;
+	}
 }
